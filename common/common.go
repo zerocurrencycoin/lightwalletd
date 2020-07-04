@@ -41,7 +41,7 @@ func GetSaplingInfo(rpcClient *rpcclient.Client) (int, int, string, string, erro
 	chainName := f.(map[string]interface{})["chain"].(string)
 
 	upgradeJSON := f.(map[string]interface{})["upgrades"]
-	saplingJSON := upgradeJSON.(map[string]interface{})["76b809bb"] // Sapling ID
+	saplingJSON := upgradeJSON.(map[string]interface{})["6f76727a"] // Sapling ID
 	saplingHeight := saplingJSON.(map[string]interface{})["activationheight"].(float64)
 
 	blockHeight := f.(map[string]interface{})["headers"].(float64)
