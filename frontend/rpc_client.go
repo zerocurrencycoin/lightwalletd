@@ -19,6 +19,21 @@ func NewZRPCFromConf(confPath string) (*rpcclient.Client, error) {
 	username := cfg.Section("").Key("rpcuser").String()
 	password := cfg.Section("").Key("rpcpassword").String()
 
+	//set local default
+	if rpcaddr == "" {
+		rpcaddr = "127.0.0.1"
+	}
+
+	//set default zero rpc port
+	if rpcport == "" {
+		rpcport = "23811"
+	}
+
+	//username and password required
+	if username == "" || password == "" {
+		return nil, errors.Wrap(err, "username and/or password are not set in config file")
+	}
+
 	return NewZRPCFromCreds(net.JoinHostPort(rpcaddr, rpcport), username, password)
 }
 

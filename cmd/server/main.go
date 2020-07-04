@@ -189,7 +189,7 @@ func main() {
 			"error": err,
 		}).Warn("zcash.conf failed, will try empty credentials for rpc")
 
-		rpcClient, err = frontend.NewZRPCFromCreds("127.0.0.1:8232", "", "")
+		rpcClient, err = frontend.NewZRPCFromCreds("127.0.0.1:23811", "", "")
 
 		if err != nil {
 			log.WithFields(logrus.Fields{
